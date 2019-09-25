@@ -27,6 +27,22 @@
       return connection.error(err.toString());
     });
   }
+
+  async function testCallApi() {
+    const payload = {
+      username: "username",
+      password: "password"
+    };
+
+    const response = await fetch("/api/userauthentication/register", {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      credentials: "same-origin"
+    });
+  }
 </script>
 
 <div>User</div>
@@ -34,6 +50,7 @@
 <div>Message</div>
 <input bind:value={newMessage} />
 <button on:click={handleSend} type="button">Send</button>
+<button on:click={testCallApi}>CAll API</button>
 
 {#each messages as msg}
   <div>{msg.user} says: {msg.message}</div>
