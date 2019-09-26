@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `username` varchar(55) UNIQUE,
   `password` varchar(500) DEFAULT NULL,
+  `image_url` varchar(200) DEFAULT NULL,
 
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
